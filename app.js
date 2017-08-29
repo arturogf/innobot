@@ -1,11 +1,19 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+config   = require('./config');
 
 // Setup Restify Server
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-	console.log('%s listening to %s', server.name, server.url); 
+const server = restify.createServer();
+const port   = (process.env.PORT || config.SERVER_PORT);
+const ip     = (process.env.IP || config.IP);
+server.listen(port, ip, function() {
+	console.log('%s listening to %s', server.name, server.url);
     });
+
+//var server = restify.createServer();
+//server.listen(process.env.port || process.env.PORT || 3978, function () {
+//	console.log('%s listening to %s', server.name, server.url); 
+//    });
 
 // Create chat connector for communicating with the Bot Framework Service
 var connector = new builder.ChatConnector({
