@@ -23,10 +23,14 @@ var connector = new builder.ChatConnector({
 
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
-
-// Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
-var bot = new builder.UniversalBot(connector, function (session) {
-	session.send("¡Buenos días INNOVADOR(A)! Soy innobot, el chatbot de la Unidad de Innovación del Hospital Clínico San Carlos");
-	session.send("Si tienes una idea original u proyecto innovador mejoraría la calidad de vida, la vivencia de la enfermedad, la experiencia asistencial o cualquier otro aspecto, cuéntanosla. Este es tu lugar. Trabajamos para ti.")
-	//session.send("Has dicho: %s", session.message.text);
+server.get('/health', function( req, res ) {
+	res.send();
     });
+// Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
+var bot = new builder.UniversalBot(connector);
+
+
+bot.dialog('/firstRun', dialogs.firstRun);
+
+// Install First Run middleware and dialog
+bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
