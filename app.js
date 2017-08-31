@@ -1,6 +1,6 @@
 var restify = require('restify');
 var builder = require('botbuilder');
-dialogs  = require('./dialogs'),
+dialogs  = require('./dialogs');
 config   = require('./config');
 
 // Setup Restify Server
@@ -34,4 +34,4 @@ var bot = new builder.UniversalBot(connector);
 bot.dialog('/firstRun', dialogs.firstRun);
 
 // Install First Run middleware and dialog
-bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
+bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/saludoInicial' }));
