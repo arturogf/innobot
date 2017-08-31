@@ -30,8 +30,9 @@ server.get('/health', function( req, res ) {
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector);
 
+bot.dialog('/',[]);
 
 bot.dialog('/firstRun', dialogs.firstRun);
 
 // Install First Run middleware and dialog
-bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/saludoInicial' }));
+bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
