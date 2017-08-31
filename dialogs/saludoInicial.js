@@ -19,7 +19,7 @@ es tu lugar. Trabajamos para ti.
   function( session, results, next ) {
     if (results.response) {
       session.userData.isLocal = true;
-      session.beginDialog('/local');
+      //session.beginDialog('/local');
     } else {
 	session.send(`Por ahora estamos ofreciendo el servicio sólo a los profesionales del hospital. ¡Vuelve pronto, tendremos novedades!`);
     }
