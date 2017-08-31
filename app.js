@@ -1,5 +1,6 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+dialogs  = require('./dialogs'),
 config   = require('./config');
 
 // Setup Restify Server
