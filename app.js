@@ -34,5 +34,7 @@ bot.dialog('/',[]);
 
 bot.dialog('/firstRun', dialogs.firstRun);
 
+bot.dialog('/local', dialogs.local);
+
 // Install First Run middleware and dialog
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));

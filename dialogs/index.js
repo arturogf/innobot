@@ -1,3 +1,4 @@
 module.exports = {
-    firstRun : require('./saludoInicial')
+    firstRun : require('./firstRun'),
+    local: require('./local')
 };
