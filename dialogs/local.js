@@ -15,6 +15,7 @@ module.exports = [
 		  function( session, results ) {
 		      if (results.response) {
 		      session.userData.idea.type = "mejora";
+		      builder.Prompts.confirm(session, `Pues nada, ¡este es tu sitio! Grabaré tu respuesta y se la pasaré a mis compañeros de la cuarta planta sur... están un poco liados (ya sabes, estos innovadores...) pero seguro que encuentran hueco para evaluarla y considerar cómo pueden ayudarte :). `);
 		      session.beginDialog('/mejora');
 		      } else {
 			  session.send(`Uhm... entonces tendrás que esperar a una próxima versión de mi alma... :(`);
