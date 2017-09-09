@@ -14,7 +14,7 @@ es tu lugar. Trabajamos para ti.
   function( session, results ) {
     session.userData.fullName = results.response;
     session.userData.name = results.response.split(' ')[0];
-    builder.Prompts.confirm(session, `Hi ${session.userData.name}. ¿Eres del hospital?`);
+    builder.Prompts.confirm(session, `Hola ${session.userData.name}. ¿Eres del hospital?`);
   },
   function( session, results, next ) {
     if (results.response) {
